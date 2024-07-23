@@ -1,7 +1,8 @@
-import { Router } from 'express';
-import passport from 'passport';
-import * as authController from "../controllers/authController"
+import { Router } from "express";
+import passport from "passport";
+import * as authController from "../controllers/authController.js";
 
-
-const router = Router();
-router.route("/register").post(authController.createUser)
+const route = Router();
+route.route("/register").post(authController.createUser);
+route.route("/login").get(authController.login)
+export default route;
