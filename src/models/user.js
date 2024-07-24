@@ -1,32 +1,19 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
-const Schema = new mongoose.Schema(
-  {
-    userName: String,
-    password:{
-      type: String,
-      required: true
-    }
-  }
-)
-// const User = sequelize.define('User', {
-//   username: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//     unique: true,
-//   },
-//   password: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-// //   preferredLanguage: {
-// //     type: DataTypes.STRING,
-// //     allowNull: false,
-// //     defaultValue: 'en',
-// //   },
-// });
+const Schema = new mongoose.Schema({
+  userName: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
+Schema.methods.comparePassword = function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
-
-export default mongoose.model("User",Schema);
+export default mongoose.model("User", Schema);

@@ -6,7 +6,7 @@ export const createUser = async (req, res) => {
     const users = await user.create({
       userName: req.body.userName,
       password: hashedPassword,
-      //   preferredLanguage: req.body.language,
+
     });
     res.status(201).json(users);
   } catch (error) {
