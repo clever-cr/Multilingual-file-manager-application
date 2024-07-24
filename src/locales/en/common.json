@@ -1,0 +1,13 @@
+{
+  "file_uploaded_successfully": "File uploaded successfully.",
+  "error_saving_file": "Error while saving the file.",
+  "error_retrieving_files": "Error while retrieving files.",
+  "error_updating_file": "Error while updating file.",
+  "error_deleting_file": "Error while deleting file.",
+  "user_created_successfully": "User created successfully.",
+  "error_creating_user": "Error creating user.",
+  "user_not_found": "User doesn't exist.",
+  "invalid_password": "Invalid password.",
+  "user_logged_in_successfully": "User logged in successfully.",
+  "error_logging_in": "Error logging in."
+}
