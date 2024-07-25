@@ -1,13 +1,10 @@
 {
-  "file_uploaded_successfully": "Archivo subido con éxito.",
-  "error_saving_file": "Error al guardar el archivo.",
-  "error_retrieving_files": "Error al recuperar los archivos.",
-  "error_updating_file": "Error al actualizar el archivo.",
-  "error_deleting_file": "Error al eliminar el archivo.",
-  "user_created_successfully": "Usuario creado con éxito.",
-  "error_creating_user": "Error al crear el usuario.",
-  "user_not_found": "El usuario no existe.",
-  "invalid_password": "Contraseña inválida.",
-  "user_logged_in_successfully": "Usuario inició sesión con éxito.",
-  "error_logging_in": "Error al iniciar sesión."
+  "user": {
+    "userExists": "El usuario ya existe",
+    "invalidData": "Datos de usuario no válidos",
+    "invalidEmailPassword": "Correo electrónico o contraseña no válidos",
+    "fileNotFound": "Archivo no encontrado",
+    "fileRemoved": "Archivo eliminado"
+  },
+  "error_saving_file": "El usuario ya existe"
 }
