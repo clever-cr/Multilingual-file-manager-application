@@ -29,6 +29,7 @@ app.use(language);
 app.use('/', routes);
 
 const db = process.env.DB_URL;
+console.log("sgfshbsh:",db);
 
 mongoose.connect(db).then(() => {
   console.log('Database connected successfully');

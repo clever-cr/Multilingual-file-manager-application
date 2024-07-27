@@ -4,7 +4,12 @@
     "invalidData": "Datos de usuario no válidos",
     "invalidEmailPassword": "Correo electrónico o contraseña no válidos",
     "fileNotFound": "Archivo no encontrado",
-    "fileRemoved": "Archivo eliminado"
+    "fileRemoved": "Archivo eliminado",
+    "usercreatedsuccessfully": "Usuario creado con éxito"
   },
-  "error_saving_file": "El usuario ya existe"
+  "error_saving_file": "No se puede guardar el archivo",
+  "file_uploaded_successfully": "Archivo subido con éxito",
+  "error_retrieving_files": "Error al recuperar archivos",
+  "error_updating_file": "Error al actualizar el archivo",
+  "error_deleting_file": "Error al eliminar el archivo"
 }

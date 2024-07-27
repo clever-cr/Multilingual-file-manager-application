@@ -35,6 +35,7 @@ export const createUser = async (req, res) => {
         username: user.userName,
         email: user.email,
         language: user.language,
+        message: t('user.usercreatedsuccessfully'),
         // token: generateToken(user._id),
       });
     } else {
@@ -85,10 +86,10 @@ export const login = async (req, res) => {
       return res.status(401).json({ message: t('user.invalidEmailPassword') });
     }
 
-    return res.status(200).json({ message: t('user_logged_in_successfully') });
+    return res.status(200).json({ message: t('user.user_logged_in_successfully') });
   } catch (error) {
     return res
       .status(400)
-      .json({ error: req.t('error_logging_in'), details: error.message });
+      .json({ error: req.t('user.invalidData'), details: error.message });
   }
 };
