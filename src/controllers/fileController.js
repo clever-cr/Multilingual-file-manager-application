@@ -20,8 +20,9 @@ export const createFile = async (req, res) => {
     }
 
     const filePath = path.join(uploadDir, name);
-    fs.writeFileSync(filePath, req.file.buffer);
-    fileQueue.add({ userId, name, buffer, size, type });
+    fs.writeFileSync(filePath, buffer);
+    const bufferString = buffer.toString('base64');
+    fileQueue.add({ userId, name, buffer: bufferString, size, type });
 
     const file = new File({ userId, name, path: filePath, size, type });
     await file.save();

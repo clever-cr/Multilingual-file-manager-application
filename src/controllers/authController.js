@@ -13,13 +13,10 @@ export const createUser = async (req, res) => {
     const { userName, email, password, language } = req.body;
     const t = req.t;
     const userExists = await User.findOne({ userName });
-    console.log(userExists);
 
     if (userExists) {
-      console.log('user existss');
       return res.status(400).json({ message: t('user.userExists') });
     }
-    console.log('heyyy');
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
@@ -38,11 +35,9 @@ export const createUser = async (req, res) => {
         message: t('user.usercreatedsuccessfully'),
       });
     } else {
-      console.log('errorrrr');
       return res.status(400).json({ message: t('user.invalidData') });
     }
   } catch (error) {
-    console.log('error', error);
     res
       .status(400)
       .json({ error: t('error_creating_user'), details: error.message });
@@ -55,7 +50,7 @@ export const login = async (req, res) => {
     const t = req.t;
 
     const userExists = await User.findOne({ email });
-    console.log('user Exists', userExists);
+
     // return res.status(401).json({ message: t('user.userExists') });
     // if (!userExists) {
     //   return res.status(404).json({ error: req.t('user_not_found') });

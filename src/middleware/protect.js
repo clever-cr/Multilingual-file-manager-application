@@ -1,8 +1,13 @@
 import jwt from 'jsonwebtoken';
-import user from '../models/user.js';
+import User from '../models/user.js'; // Ensure the model is properly imported
 import 'dotenv/config';
 
 export const protect = async (req, res, next) => {
+  // Skip the authorization check for /api-docs route
+  if (req.path.startsWith('/api-docs')) {
+    return next();
+  }
+
   let token;
   if (
     req.headers.authorization &&
@@ -11,15 +16,12 @@ export const protect = async (req, res, next) => {
     try {
       token = req.headers.authorization.split(' ')[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = await user.findById(decoded.id).select('-password');
+      req.user = await User.findById(decoded.id).select('-password');
       next();
     } catch (error) {
-      res.status(401);
-      throw new Error('Not authorized, token failed');
+      res.status(401).json({ message: 'Not authorized, token failed' });
     }
-  }
-  if (!token) {
-    res.status(401);
-    throw new Error('Not authorized, no token');
+  } else {
+    res.status(401).json({ message: 'Not authorized, no token' });
   }
 };
