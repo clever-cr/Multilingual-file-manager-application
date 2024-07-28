@@ -6,6 +6,6 @@ import { protect } from '../middleware/protect.js';
 
 const app = express();
 app.use('/', authroute);
-// app.use('/', protect, setUserLanguage, fileroute);
+app.use('/', protect, setUserLanguage, fileroute);
 
 export default app;

@@ -11,5 +11,7 @@
   "file_uploaded_successfully": "Archivo subido con éxito",
   "error_retrieving_files": "Error al recuperar archivos",
   "error_updating_file": "Error al actualizar el archivo",
-  "error_deleting_file": "Error al eliminar el archivo"
+  "error_deleting_file": "Error al eliminar el archivo",
+  "filedeletedsuccessfully": "Archivo eliminado con éxito",
+  "File not found": "Archivo no encontrado"
 }

@@ -17,7 +17,6 @@ app.use('/', swaggerDocs);
 app.use('/', routes);
 
 const db = process.env.DB_URL;
-console.log('sgfshbsh:', db);
 
 mongoose.connect(db, {
   useNewUrlParser: true,
