@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "babel src --out-dir lib --config-file ./babel.config.cjs",
     "dev": "nodemon --exec babel-node ./src/server.js ./src/worker.js ",

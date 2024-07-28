@@ -10,16 +10,16 @@ export const generateToken = (id) => {
 
 export const createUser = async (req, res) => {
   try {
-    console.log('yoooo');
     const { userName, email, password, language } = req.body;
     const t = req.t;
     const userExists = await User.findOne({ userName });
     console.log(userExists);
 
-    // if (userExists) {
-    //   res.status(400).json({ message: t('user.userExists') });
-    //   return;
-    // }
+    if (userExists) {
+      console.log('user existss');
+      return res.status(400).json({ message: t('user.userExists') });
+    }
+    console.log('heyyy');
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
@@ -30,23 +30,17 @@ export const createUser = async (req, res) => {
     });
 
     if (user) {
-      res.status(201).json({
+      return res.status(201).json({
         _id: user._id,
         username: user.userName,
         email: user.email,
         language: user.language,
         message: t('user.usercreatedsuccessfully'),
-        // token: generateToken(user._id),
       });
     } else {
-      res.status(400).json({ message: t('user.invalidData') });
+      console.log('errorrrr');
+      return res.status(400).json({ message: t('user.invalidData') });
     }
-
-    // const user = await User.create({
-    //   userName: req.body.userName,
-    //   password: hashedPassword,
-    // });
-    // res.status(201).json({ message: req.t('user_created_successfully'), user });
   } catch (error) {
     console.log('error', error);
     res
@@ -86,7 +80,9 @@ export const login = async (req, res) => {
       return res.status(401).json({ message: t('user.invalidEmailPassword') });
     }
 
-    return res.status(200).json({ message: t('user.user_logged_in_successfully') });
+    return res
+      .status(200)
+      .json({ message: t('user.user_logged_in_successfully') });
   } catch (error) {
     return res
       .status(400)

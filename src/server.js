@@ -29,7 +29,7 @@ app.use(language);
 app.use('/', routes);
 
 const db = process.env.DB_URL;
-console.log("sgfshbsh:",db);
+console.log('sgfshbsh:', db);
 
 mongoose.connect(db).then(() => {
   console.log('Database connected successfully');
@@ -38,3 +38,5 @@ mongoose.connect(db).then(() => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+export default app;
