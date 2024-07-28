@@ -1,0 +1,14 @@
+Basic Authentication vs Session Authentication vs JWT Authentication
+
+1.What is the difference between authentication and authorization?
+Answer : Authentication verifies user credentials, authorization decides permissions
+
+2. How does basic authentication work? 
+Answer :  User credentials are sent in headers with each request
+
+3.What are the main benefits of session-based authentication? 
+Answer : Lightweight, uses secure cookies, doesn't require credentials with each request
+
+4.When are JWTs useful for authentication?
+Answer :  For granting temporary access between services
+

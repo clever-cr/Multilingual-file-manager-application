@@ -1,8 +1,8 @@
-import { Router } from "express";
-import * as authController from "../controllers/authController.js";
-import { authenticateLogin } from "../middleware/verifyUser.js";
+import { Router } from 'express';
+import * as authController from '../controllers/authController.js';
+import { authenticateLogin } from '../middleware/verifyUser.js';
 
 const route = Router();
-route.route("/register").post(authController.createUser);
-route.post("/login", authenticateLogin);
+route.route('/register').post(authController.createUser);
+route.post('/login', authController.login);
 export default route;
