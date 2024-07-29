@@ -19,10 +19,11 @@ export const createUser = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+
     const user = await User.create({
       userName,
       email,
-      password,
+      password: hashedPassword,
       language,
     });
 
@@ -50,34 +51,23 @@ export const login = async (req, res) => {
     const t = req.t;
 
     const userExists = await User.findOne({ email });
-
-    // return res.status(401).json({ message: t('user.userExists') });
-    // if (!userExists) {
-    //   return res.status(404).json({ error: req.t('user_not_found') });
-    // }
-
-    const passwordMatch = await bcrypt.compare(password, userExists.password);
-    console.log('passwordd', passwordMatch);
-    // if (!passwordMatch) {
-    //   return res.status(401).json({ error: req.t('invalid_password') });
-    // }
-
-    if (userExists) {
-      req.i18n.changeLanguage(userExists.language);
-      return res.json({
-        _id: userExists._id,
-        username: userExists.userName,
-        email: userExists.email,
-        language: userExists.language,
-        token: generateToken(userExists._id),
-      });
-    } else {
-      return res.status(401).json({ message: t('user.invalidEmailPassword') });
+    if (!userExists) {
+      return res.status(401).json({ error: req.t('invalid_email') });
+    }
+    const passwordMatch = await bcrypt.compare(password, userExists?.password);
+    if (!passwordMatch) {
+      return res.status(401).json({ error: req.t('invalid_password') });
     }
 
-    return res
-      .status(200)
-      .json({ message: t('user.user_logged_in_successfully') });
+    req.i18n.changeLanguage(userExists.language);
+    return res.json({
+      message: t('user.user_logged_in_successfully'),
+      _id: userExists._id,
+      username: userExists.userName,
+      email: userExists.email,
+      language: userExists.language,
+      token: generateToken(userExists._id),
+    });
   } catch (error) {
     return res
       .status(400)

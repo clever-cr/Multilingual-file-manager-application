@@ -1,7 +1,5 @@
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import File from '../models/file.js';
 import fileQueue from './queue.js';
 

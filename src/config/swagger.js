@@ -8,7 +8,8 @@ const options = {
     info: {
       title: 'Multilingual File Manager API',
       version: '1.0.0',
-      description: 'API documentation for the multilingual file manager application',
+      description:
+        'API documentation for the multilingual file manager application',
     },
     servers: [
       {
@@ -37,6 +38,5 @@ const specs = swaggerJsdoc(options);
 
 const swaggerDocs = express.Router();
 swaggerDocs.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-console.log(specs);
 
 export default swaggerDocs;

@@ -18,18 +18,18 @@ app.use('/', routes);
 
 const db = process.env.DB_URL;
 
-mongoose.connect(db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
-  socketTimeoutMS: 45000, // Increase socket timeout to 45 seconds
-  connectTimeoutMS: 30000
-}).then(() => {
-  console.log('Database connected successfully');
-}).catch(error => {
-  console.error('Database connection error:', error.message);
-  process.exit(1); // Exit the process with failure
-});
+mongoose
+  .connect(db, {
+    serverSelectionTimeoutMS: 30000,
+    connectTimeoutMS: 30000,
+  })
+  .then(() => {
+    console.log('Database connected successfully');
+  })
+  .catch((error) => {
+    console.error('Database connection error:', error.message);
+    process.exit(1);
+  });
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

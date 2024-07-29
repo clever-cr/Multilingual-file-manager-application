@@ -5,7 +5,8 @@
     "invalidEmailPassword": "Correo electrónico o contraseña no válidos",
     "fileNotFound": "Archivo no encontrado",
     "fileRemoved": "Archivo eliminado",
-    "usercreatedsuccessfully": "Usuario creado con éxito"
+    "usercreatedsuccessfully": "Usuario creado con éxito",
+    "user_logged_in_successfully": "usuario ha iniciado sesión con éxito"
   },
   "error_saving_file": "No se puede guardar el archivo",
   "file_uploaded_successfully": "Archivo subido con éxito",

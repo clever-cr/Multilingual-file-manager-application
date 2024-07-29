@@ -30,7 +30,10 @@ describe('Queue', () => {
     const result = await job.finished();
 
     expect(result).toBeUndefined(); // done() does not return a value
-    const savedFile = await File.findOne({ userId: jobData.userId, name: jobData.name });
+    const savedFile = await File.findOne({
+      userId: jobData.userId,
+      name: jobData.name,
+    });
     expect(savedFile).not.toBeNull();
     expect(savedFile).toHaveProperty('name', 'testfile.txt');
   });

@@ -5,13 +5,14 @@
     "invalidEmailPassword": "Invalid email or password",
     "fileNotFound": "File not found",
     "fileRemoved": "File removed",
-    "usercreatedsuccessfully": "usercreatedsuccessfully"
+    "usercreatedsuccessfully": "usercreatedsuccessfully",
+    "user_logged_in_successfully": "User logged in successfully"
   },
   "error_saving_file": "File can't be saved",
-  "file_uploaded_successfully" : "file uploaded successfully",
-   "error_retrieving_files" : "error retrieving files",
-   "error_updating_file" : "error updating file",
-   "error_deleting_file" : "error eleting file",
-   "filedeletedsuccessfully": "File deleted successfully ",
-   "File not found": "File not found"
+  "file_uploaded_successfully": "file uploaded successfully",
+  "error_retrieving_files": "error retrieving files",
+  "error_updating_file": "error updating file",
+  "error_deleting_file": "error eleting file",
+  "filedeletedsuccessfully": "File deleted successfully ",
+  "File not found": "File not found"
 }

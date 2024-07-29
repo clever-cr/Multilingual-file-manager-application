@@ -1,9 +1,8 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/user.js'; // Ensure the model is properly imported
+import User from '../models/user.js';
 import 'dotenv/config';
 
 export const protect = async (req, res, next) => {
-  // Skip the authorization check for /api-docs route
   if (req.path.startsWith('/api-docs')) {
     return next();
   }
