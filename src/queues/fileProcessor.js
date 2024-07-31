@@ -7,10 +7,10 @@ const __dirname = path.dirname(__filename);
 
 fileQueue.process(async (job, done) => {
   try {
+    console.log('try');
     const { userId, name, buffer, size, type } = job.data;
     const uploadDir = path.join(__dirname, '../uploads', userId);
 
-    // Convert base64 string back to buffer
     const bufferData = Buffer.from(buffer, 'base64');
 
     if (!fs.existsSync(uploadDir)) {
@@ -27,7 +27,7 @@ fileQueue.process(async (job, done) => {
     await file.save();
     console.log('File saved to database successfully');
 
-    job.progress(100); // Update progress
+    job.progress(100);
     console.log(`Job completed for file: ${name}`);
     done();
   } catch (error) {

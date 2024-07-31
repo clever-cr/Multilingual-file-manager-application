@@ -21,6 +21,7 @@ export const createFile = async (req, res) => {
     fileQueue.add({ userId, name, buffer: bufferString, size, type });
 
     const file = new File({ userId, name, path: filePath, size, type });
+
     await file.save();
     return res
       .status(201)
